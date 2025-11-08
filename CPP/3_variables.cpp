@@ -6,7 +6,7 @@ int main()
 {
     int marks = 100;
 
-    cout << "The mark is: " << marks<<endl;
+    cout << "The mark is: " << marks << endl;
 
     short a;
     int b;
@@ -21,7 +21,7 @@ int main()
     // cout << "The score is: " << score2<<endl;
     // cout << "The score is: " << score3<<endl;
 
-////
+    ////
 
     // score = 34.2;
     // cout<<score;
@@ -34,9 +34,9 @@ int main()
     double const score2 = 45.3221;
     long double const score3 = 45.3221;
 
-    cout << "The score is: " << score<<endl;
-    cout << "The score is: " << score2<<endl;
-    cout << "The score is: " << score3<<endl;
+    cout << "The score is: " << score << endl;
+    cout << "The score is: " << score2 << endl;
+    cout << "The score is: " << score3 << endl;
 
     return 0;
 }
