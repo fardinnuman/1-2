@@ -1,24 +1,24 @@
-// Insertion at the end
+// Deletion at the beginning
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-
-    int arr[10], n, i, x;
+    int arr[10], n;
     cout << "Enter size of an array: ";
     cin >> n;
     cout << "Enter elements of the array: ";
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    ////////
-    cout << "Enter the value to insert at the end: ";
-    cin >> x;
-    arr[i] = x;
-    n++;
+    /////
+    for (int i = 1; i < n; i++)
+    {
+        arr[i - 1] = arr[i];
+    }
+    n--;
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << endl;

@@ -5,7 +5,6 @@ using namespace std;
 
 int main()
 {
-
     int arr[10], n, pos, x;
     cout << "Enter size of an array: ";
     cin >> n;
@@ -14,7 +13,7 @@ int main()
     {
         cin >> arr[i];
     }
-    ////////
+    /////
     cout << "Enter insertion location (index): ";
     cin >> pos;
     cout << "Enter the value to insert: ";
