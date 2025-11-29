@@ -3,7 +3,6 @@ using namespace std;
 
 int main()
 {
-
     int arr[5] = {17, 5, 2, 4, 3};
     int n = 5;
 
@@ -17,7 +16,6 @@ int main()
             }
         }
     }
-
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << endl;
