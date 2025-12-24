@@ -25,7 +25,6 @@ int main()
         cout << "yes\n";
         return 0;
     }
-
     swap(a[l], a[r]);
     bool ok = true;
     for (int i = 0; i < n; i++)
