@@ -1,20 +1,3 @@
-/*
-Write an Account class with 2 data members and methods. The structure
-of the Account class is:
-
-class Account {
-    int number;
-    int amount;
-    //Write methods
-};
-
-Now do the following:
-i) Initialize 5 accounts
-ii) Deposit money to an account
-iii) Withdrawal money from an account
-iv) Transfer money from one account to another
-*/
-
 #include <iostream>
 using namespace std;
 
@@ -25,18 +8,17 @@ private:
     int amount;
 
 public:
-    Account(int num, int amt)
-    {
-        number = num;
-        amount = amt;
-    }
+    // Constructor using initializer list
+    Account(int num, int amt) : number(num), amount(amt) {}
 
+    // Deposit money
     void deposit(int x)
     {
         amount += x;
         cout << "Deposited " << x << " to Account " << number << endl;
     }
 
+    // Withdraw money with balance check
     void withdraw(int x)
     {
         if (x <= amount)
@@ -44,19 +26,31 @@ public:
             amount -= x;
             cout << "Withdrew " << x << " from Account " << number << endl;
         }
+        else
+        {
+            cout << "Insufficient balance in Account " << number << endl;
+        }
     }
 
+    // Transfer money to another account
     void transfer(Account &to, int x)
     {
         if (x <= amount)
         {
             amount -= x;
             to.amount += x;
-            cout << "Transferred " << x << " from Account " << number << " to Account " << to.number << endl;
+            cout << "Transferred " << x << " from Account " << number
+                 << " to Account " << to.number << endl;
+        }
+        else
+        {
+            cout << "Insufficient balance in Account " << number
+                 << " for transfer" << endl;
         }
     }
 
-    void show()
+    // Display account details
+    void show() const
     {
         cout << "Account No: " << number << " | Balance: " << amount << endl;
     }
@@ -64,6 +58,7 @@ public:
 
 int main()
 {
+    // Initialize 5 accounts
     Account a1(2403176, 20);
     Account a2(2403177, 3000);
     Account a3(2403178, 7000);
@@ -80,6 +75,7 @@ int main()
     a5.show();
     cout << "-----------------------------------\n";
 
+    // Perform some transactions
     a1.deposit(1000);
     a2.withdraw(200);
     a3.transfer(a4, 500);
