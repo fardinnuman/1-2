@@ -5,8 +5,7 @@ using namespace std;
 void separateNumbers(string s)
 {
     int n = s.size();
-    for (int len = 1; len <= n / 2; len++)
-    {
+    for (int len = 1; len <= n / 2; len++) {
         string firstStr = s.substr(0, len);
         if (firstStr[0] == '0')
             continue;
@@ -33,8 +32,7 @@ int main()
 {
     int q;
     cin >> q;
-    while (q--)
-    {
+    while (q--) {
         string s;
         cin >> s;
         separateNumbers(s);
