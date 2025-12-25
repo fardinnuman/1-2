@@ -2,40 +2,35 @@
 using namespace std;
 
 class A {
-    private:
+private:
     int a, b;
-    
-    public:
-    void SetData(int x, int y) {
+
+public:
+    void setData(int x, int y) {
         a = x;
         b = y;
-    }    
-    
+    }
+
+    // Copy constructor
     A(const A &obj) {
         a = obj.a;
         b = obj.b;
     }
-    
-    A() {
-        a = 0;
-        b = 0;
-    }
 
-    void show() {
+    A() {}
+
+    void show() const {
         cout << "a = " << a << ", b = " << b << endl;
     }
 };
 
 int main() {
     A obj1;
-    obj1.SetData(10, 20);
+    obj1.setData(10, 20);
 
-    A obj2(obj1);
+    A obj2(obj1);   // Copy constructor call
 
-    cout << "Object 1: ";
     obj1.show();
-
-    cout << "Object 2: ";
     obj2.show();
 
     return 0;
