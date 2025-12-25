@@ -4,27 +4,31 @@ using namespace std;
 class Remote {
 private:
     int sound;
+
 public:
-    Remote(int s = 0){
-        sound = s;
-    }
-    Remote operator++(){
+    Remote() {
+        sound = 0;
+    } // To initialize sound value
+
+    void operator++() {
         sound++;
-        return *this;
-    }
-    Remote operator--(){
+    } // To increase sound
+
+    void operator--() {
         sound--;
-        return *this;
-    }
-    void Display(){
-        cout << "Sound = " << sound << endl;
-    }
+    } // To decrease sound
+    
+    void display() {
+        cout << sound << endl;
+    } // To display sound value
 };
-int main(){
+
+int main() {
     Remote rs;
-    ++rs;
-    ++rs;
-    --rs;
-    rs.Display();
+    ++rs; // Increase
+    ++rs; 
+    --rs; // Decrease
+    rs.display();
     return 0;
 }
+
