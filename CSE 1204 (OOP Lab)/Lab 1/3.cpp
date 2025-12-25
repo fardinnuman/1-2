@@ -12,7 +12,7 @@ public:
     // Constructor to initialize edges
     Triangle(int e1, int e2, int e3) : edge1(e1), edge2(e2), edge3(e3), area(0) {}
 
-    // Check if the edges can form a valid triangle
+    // To check if the edges can form a valid triangle
     bool isValid() const
     {
         return (edge1 + edge2 > edge3) &&
@@ -20,7 +20,7 @@ public:
                (edge2 + edge3 > edge1);
     }
 
-    // Calculate area using Heron's formula
+    // To calculate area
     void calculateArea()
     {
         if (isValid())
@@ -34,7 +34,7 @@ public:
         }
     }
 
-    // Display the area
+    // To display the area
     void showArea() const
     {
         if (area > 0)
@@ -43,7 +43,7 @@ public:
             cout << "Cannot calculate area. Invalid triangle edges." << endl;
     }
 
-    // Display the edges
+    // To display the edges
     void showEdges() const
     {
         cout << "Edges: " << edge1 << ", " << edge2 << ", " << edge3 << endl;
@@ -52,13 +52,13 @@ public:
 
 int main()
 {
-    // Initialize a triangle
+    // To initialize a triangle
     Triangle t(3, 4, 5);
 
     cout << "Triangle edges:\n";
     t.showEdges();
 
-    // Check validity
+    // To check validity
     if (t.isValid())
     {
         cout << "The edges form a valid triangle.\n";

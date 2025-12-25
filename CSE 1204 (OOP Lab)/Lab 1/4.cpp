@@ -6,15 +6,15 @@ using namespace std;
 // Structure to store Member data
 struct Member {
     int id;
-    float height; // in meters
-    float weight; // in kg
+    float height; // meters
+    float weight; // kg
 
-    // Calculate BMI
+    // To calculate BMI
     float calculateBMI() const {
         return weight / (height * height);
     }
 
-    // Display BMI classification
+    // To display BMI
     void displayBMI() const {
         float bmi = calculateBMI();
         cout << "Member ID: " << id << " | BMI: " << bmi << " | Classification: ";

@@ -7,11 +7,11 @@ private:
     int radius;
 
 public:
-    Circle(int r) : radius(r) {} // Constructor with initializer list
+    Circle(int r) : radius(r) {} // Constructor to initializer list
 
     float getArea() const
     {
-        return 3.14159 * radius * radius; // Calculate area on demand
+        return 3.14159 * radius * radius; // To calculate area
     }
 };
 
