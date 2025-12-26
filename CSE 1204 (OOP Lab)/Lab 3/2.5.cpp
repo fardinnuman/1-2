@@ -1,41 +1,33 @@
 #include <iostream>
 using namespace std;
 
-class A
-{
+class A {
+private:
+    int x;
 protected:
     int y;
-
 public:
     int z;
-    A()
-    {
-        y = 1;
-        z = 2;
-    }
-};
-
-class B : virtual public A
-{
-};
-class C : virtual public A
-{
-};
-
-class D : public B, public C
-{
 public:
-    void access()
-    {
-        cout << "Hybrid (Diamond) Inheritance\n";
-        cout << "y: " << y << endl;
-        cout << "z: " << z << endl;
+    A() { x=10; y=20; z=30; }
+};
+
+class B : public A {};
+class C : public A {};
+
+class D : public B, public C {
+public:
+    void show() {
+        // cout << x; // Not accessible
+        cout << "B::y: " << B::y << endl;
+        cout << "B::z: " << B::z << endl;
+        cout << "C::y: " << C::y << endl;
+        cout << "C::z: " << C::z << endl;
     }
 };
 
-int main()
-{
+int main() {
     D d;
-    d.access();
+    d.show();
     return 0;
 }

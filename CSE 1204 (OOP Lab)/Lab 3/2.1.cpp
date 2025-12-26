@@ -1,40 +1,28 @@
 #include <iostream>
 using namespace std;
 
-class A
-{
+class A {
 private:
     int x;
-
 protected:
     int y;
-
 public:
     int z;
-
-    A()
-    {
-        x = 10;
-        y = 20;
-        z = 30;
-    }
-};
-
-class B : public A
-{
 public:
-    void access()
-    {
-        cout << "Single Inheritance (A → B)\n";
-        cout << "x: Not Accessible\n";
-        cout << "y: " << y << endl;
-        cout << "z: " << z << endl;
+    A() { x=10; y=20; z=30; }
+};
+
+class B : public A {
+public:
+    void show() {
+        // cout << x; // Not accessible
+        cout << "y: " << y << endl; // Accessible
+        cout << "z: " << z << endl; // Accessible
     }
 };
 
-int main()
-{
+int main() {
     B b;
-    b.access();
+    b.show();
     return 0;
 }

@@ -1,53 +1,39 @@
 #include <iostream>
 using namespace std;
 
-class A
-{
+class A {
 private:
     int x;
-
 protected:
     int y;
-
 public:
     int z;
-    A()
-    {
-        x = 5;
-        y = 10;
-        z = 15;
-    }
+public:
+    A() { x=10; y=20; z=30; }
 };
 
-class B : public A
-{
+class B : public A {
 public:
-    void access()
-    {
-        cout << "Hierarchical Inheritance (A → B)\n";
-        cout << "x: Not Accessible\n";
+    void show() {
+        // cout << x; // Not accessible
         cout << "y: " << y << endl;
         cout << "z: " << z << endl;
     }
 };
 
-class C : public A
-{
+class C : public A {
 public:
-    void access()
-    {
-        cout << "Hierarchical Inheritance (A → C)\n";
-        cout << "x: Not Accessible\n";
+    void show() {
+        // cout << x; // Not accessible
         cout << "y: " << y << endl;
         cout << "z: " << z << endl;
     }
 };
 
-int main()
-{
+int main() {
     B b;
     C c;
-    b.access();
-    c.access();
+    b.show();
+    c.show();
     return 0;
 }

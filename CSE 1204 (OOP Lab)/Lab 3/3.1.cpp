@@ -2,26 +2,25 @@
 using namespace std;
 
 class A {
-private: int ax;
+private:
+    int ax;
 public:
-    A(int a){ ax=a; cout<<"A Constructor\n"; }
-    ~A(){ cout<<"A Destructor\n"; }
-    int getA(){ return ax; }
+    A() { ax = 10; } // Constructor
+    ~A() { }         // Destructor
+    int getAx() { return ax; }
 };
 
 class B : public A {
-private: int bx;
+private:
+    int bx;
 public:
-    B(int a,int b) : A(a) {
-        bx = b; 
-        cout<<"B Constructor\n";
-    }
-    int sum() { return getA() + bx; }
-    ~B(){ cout<<"B Destructor\n"; }
+    B() { bx = 20; } // Constructor
+    ~B() { }         // Destructor
+    void sum() { cout << getAx() + bx << endl; } // Sum method
 };
 
-int main(){
-    B b(10,20);
-    cout<<"Sum = "<<b.sum()<<endl;
+int main() {
+    B b;
+    b.sum();
     return 0;
 }

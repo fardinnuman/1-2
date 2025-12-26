@@ -2,52 +2,43 @@
 using namespace std;
 
 class A {
-private:int ax;
+private:
+    int ax;
 public:
-    A(int a){ ax=a; cout<<"A Constructor\n"; }
-    ~A(){ cout<<"A Destructor\n"; }
-    int getA(){ return ax; }
+    A() { ax = 10; } // Constructor
+    virtual ~A() { } // Destructor
+    int getAx() { return ax; }
 };
 
 class B : virtual public A {
-private:int bx;
+private:
+    int bx;
 public:
-    B(int a,int b):A(a){
-        bx=b; cout<<"B Constructor\n";
-    }
-    ~B(){ cout<<"B Destructor\n"; }
-    int getB(){ return bx; }
+    B() { bx = 20; } // Constructor
+    ~B() { }         // Destructor
+    int getBx() { return bx; }
 };
 
 class C : virtual public A {
-private:int cx;
+private:
+    int cx;
 public:
-    C(int a,int c):A(a){
-        cx=c; cout<<"C Constructor\n";
-    }
-    ~C(){ cout<<"C Destructor\n"; }
-    int getC(){ return cx; }
+    C() { cx = 30; } // Constructor
+    ~C() { }         // Destructor
+    int getCx() { return cx; }
 };
 
 class D : public B, public C {
-private:int dx;
+private:
+    int dx;
 public:
-    D(int a,int b,int c,int d) : 
-        A(a), B(a,b), C(a,c)
-    {
-        dx=d;
-        cout<<"D Constructor\n";
-    }
-
-    int sum(){
-        return getA() + getB() + getC() + dx;
-    }
-
-    ~D(){ cout<<"D Destructor\n"; }
+    D() { dx = 40; } // Constructor
+    ~D() { }         // Destructor
+    void sum() { cout << getAx() + getBx() + getCx() + dx << endl; } // Sum method
 };
 
-int main(){
-    D d(1,2,3,4);
-    cout<<"Sum = "<<d.sum()<<endl;
+int main() {
+    D d;
+    d.sum();
     return 0;
 }

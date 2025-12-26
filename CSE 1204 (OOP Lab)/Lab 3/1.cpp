@@ -1,58 +1,48 @@
-#include<iostream>
-
+#include <iostream>
 using namespace std;
 
-class Baba{
+// Father class
+class Father {
 private:
     int money;
-
 protected:
     int gold;
-
 public:
     int land;
 
-    Baba(){
-        money = 100000;
-        gold = 200;
-        land = 3;
-    }
-
-    int getMoney(){
-        return money;
-    }
-};
-
-class Chele : public Baba{
 public:
-    void accessChele(){
-        cout << "\n~Access from Chele Class~\n";
-        cout << "money: NOT ACCESSIBLE\n";
-        cout << "gold: Accessible= " << gold << endl;
-        cout << "land: Accessible= " << land << endl;
-    }
+    Father() { money = 100; gold = 50; land = 200; } // To initialize values
 };
-class Nati : public Chele{
+
+// Son class inheriting from Father
+class Son : public Father { // To change public into protected/private
 public:
-    void accessNati(){
-        cout << "\n~Access from Nati Class~\n";
-        cout << "money: NOT ACCESSIBLE\n";
-        cout << "gold: Accessible= " << gold << endl;
-        cout << "land: Accessible= " << land << endl;
-    }
-    int sumAll(){
-        return getMoney() + gold + land;
+    void showSon() {
+        // money; // Not accessible
+        cout << "gold in Son: " << gold << endl;  // Accessible
+        cout << "land in Son: " << land << endl;  // Accessible
     }
 };
-int main(){
-    Chele s;
-    Nati g;
 
-    s.accessChele();
-    g.accessNati();
+// GrandSon class inheriting from Son
+class GrandSon : public Son { // To change public into protected/private
+public:
+    void showGrandSon() {
+        // money; // Not accessible
+        cout << "gold in GrandSon: " << gold << endl;
+        cout << "land in GrandSon: " << land << endl;
 
-    cout << "Sum of money + gold + land (from Nati): "
-         << g.sumAll() << endl;
+        int sum = gold + land; // money not accessible
+        cout << "Sum of accessible members: " << sum << endl;
+    }
+};
+
+int main() {
+    Son s;
+    GrandSon gs;
+
+    s.showSon();
+    gs.showGrandSon();
 
     return 0;
 }
