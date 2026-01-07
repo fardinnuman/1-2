@@ -11,7 +11,7 @@ int main()
     for (i = 0; i < n; i++)
         scanf("%d", &arr[i]);
 
-    printf("Enter position to split (1 to                       %d): ", n - 1);
+    printf("Enter position to split (1 to %d): ", n - 1);
     scanf("%d", &pos);
 
     printf("First part: ");
