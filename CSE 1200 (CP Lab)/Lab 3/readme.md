@@ -1,0 +1,1 @@
+Lab 3 Contest - https://vjudge.net/contest/780475

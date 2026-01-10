@@ -1,1 +1,1 @@
-LAB REPORT - https://vjudge.net/contest/774636
+Lab 2 Contest - https://vjudge.net/contest/774636
