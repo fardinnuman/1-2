@@ -25,25 +25,24 @@ private:
     Doctor* doctor;
 
 public:
-    Patient(string pName, Doctor* d) {
-        patientName = pName;
+    Patient(string p, Doctor* d) {
+        patientName = p;
         doctor = d;
     }
 
     void showPatient() {
         cout << "Patient Name: " << patientName << endl;
-        cout << "Consulting Doctor Details:" << endl;
         doctor->showDoctor();
     }
 };
 
 int main() {
-    Doctor d1("Dr. Rahman", "Cardiology");
+    Doctor d1("Dr. Fardin Numan", "Moner Doctor");
 
-    Patient p1("Ali", &d1);
+    Patient p1("Mahdi", &d1);
     p1.showPatient();
 
-    cout << "\nDoctor still exists independently:\n";
+    cout << "\nPatient destroyed, Doctor still exists:\n";
     d1.showDoctor();
 
     return 0;
