@@ -4,52 +4,43 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
+    int t;
+    cin >> t;
 
-    while (n--)
+    unordered_map<char, char> match = {
+        {')', '('},
+        {'}', '{'},
+        {']', '['}
+    };
+
+    while (t--)
     {
         string s;
         cin >> s;
 
-        stack<char> st;
-        bool balanced = true;
+        stack<char> stk;
+        bool ok = true;
 
-        for (char c : s)
+        for (char ch : s)
         {
-
-            if (c == '(' || c == '{' || c == '[')
+            if (ch == '(' || ch == '{' || ch == '[')
             {
-                st.push(c);
+                stk.push(ch);
             }
-
             else
             {
-                if (st.empty())
+                if (stk.empty() || stk.top() != match[ch])
                 {
-                    balanced = false;
+                    ok = false;
                     break;
                 }
-
-                char top = st.top();
-                if ((c == ')' && top == '(') ||
-                    (c == '}' && top == '{') ||
-                    (c == ']' && top == '['))
-                {
-                    st.pop();
-                }
-                else
-                {
-                    balanced = false;
-                    break;
-                }
+                stk.pop();
             }
         }
 
-        if (balanced && st.empty())
-            cout << "YES\n";
-        else
-            cout << "NO\n";
+        if (!stk.empty()) ok = false;
+
+        cout << (ok ? "YES\n" : "NO\n");
     }
 
     return 0;
