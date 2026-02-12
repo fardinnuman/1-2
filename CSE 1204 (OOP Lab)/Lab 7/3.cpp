@@ -15,20 +15,18 @@ public:
     }
 };
 
-class Doctor
-{
+class Doctor{
     string dname;
     int experience;
-
+    Patient p; // Composition: Patient is a member object of Doctor
 public:
-    Doctor(string n, int exp) : dname(n), experience(exp) {}
+    Doctor(string dn, int exp, string pn, int pa) : dname(dn), experience(exp), p(pn, pa) {}
     void show()
     {
         cout << "Doctor Name: " << dname << ", Experience: " << experience << " years" << endl;
     }
-
-    void treat(Patient &p)
-    { // Aggregation: reference to patient
+    void treat()
+    {
         cout << dname << " is treating ";
         p.display();
     }
@@ -36,14 +34,9 @@ public:
 
 int main()
 {
-    Doctor d1("Dr. Shyla", 15);
-    Patient p1("Fardin", 20);
-    Patient p2("Numan", 21);
-
+    Doctor d1("Dr. Shyla", 15, "Numan", 20);
     d1.show();
-    d1.treat(p1);
-    d1.treat(p2);
+    d1.treat();
 
     return 0;
 }
-

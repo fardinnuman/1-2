@@ -3,7 +3,7 @@ using namespace std;
 
 class A {
 public:
-    void Print() {  // Remove 'virtual' for first run
+    void Print() {
         cout << "Inside Print() of class A" << endl;
     }
 };
