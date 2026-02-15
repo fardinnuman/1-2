@@ -1,12 +1,3 @@
-/*
-    RUET CSE 1203 Assignment
-    Topic: myCash - Mobile Financial Service Simulation
-    Submitted by: [Your Name]
-    Submitted to: [Teacher's Name]
-    Date: [Date]
-    Roll: [Your Roll]
-*/
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -15,7 +6,7 @@
 #include <ctime>
 #include <sstream>
 #include <iomanip>
-#include <conio.h> // for getch() to hide PIN input
+#include <conio.h> 
 #include <algorithm>
 
 using namespace std;
