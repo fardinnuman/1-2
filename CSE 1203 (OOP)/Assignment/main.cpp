@@ -370,7 +370,7 @@ void registerMember()
     Member newMember(mobile, name, 0.0, pin);
     newMember.saveToFile();
     allMembers.push_back(newMember);
-    cout << "Registration is Successful\nPress any key to go to main menu...";
+    cout << "Registration is Successful\nPress any key to go to main menu...\n";
     _getch();
 }
 
@@ -869,7 +869,7 @@ int main()
 
             case 9:
                 currentUser = nullptr;
-                cout << "Successfully logged out.\n";
+                cout << "Successfully logged out\n";
                 break;
 
             default:
