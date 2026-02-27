@@ -75,6 +75,7 @@ public:
             return;
         }
 
+        cout << "\n--- History ---\n";
         cout << "Tran ID\t Description\tAmount\tBalance\n";
 
         string line;
@@ -607,7 +608,7 @@ void sendMoney(Member *sender)
 
     if (destMobile == sender->getMobile())
     {
-        cout << "Error: Cannot send money to yourself.\n";
+        cout << "Error: Cannot send money to yourself\n";
         return;
     }
 
