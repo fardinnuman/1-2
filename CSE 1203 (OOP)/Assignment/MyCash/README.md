@@ -422,23 +422,3 @@ THANK YOU FOR USING MyCash!
 | Invalid Y/N choice | `Error: Enter Y or N` |
 
 </div>
-
----
-
-<div align="center">
-
-## 🎓 LEARNING OUTCOMES
-
-</div>
-
-This project demonstrates proficiency in:
-- ✅ Object-Oriented Programming with C++ classes
-- ✅ File I/O operations for persistent storage
-- ✅ Vector data structures for dynamic member management
-- ✅ Enum types for transaction categorization
-- ✅ Time-based OTP generation and validation
-- ✅ Console manipulation for enhanced UX
-- ✅ Secure PIN handling with masking
-- ✅ Transaction processing with dual-entry accounting
-- ✅ Input validation and error handling
-- ✅ Modular function-based design
