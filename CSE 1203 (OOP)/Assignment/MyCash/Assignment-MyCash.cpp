@@ -811,9 +811,7 @@ int main()
         {
             // MAIN MENU
             cout << "\n********** MyCash Menu **********\n";
-            cout << "1. Update Me\n2. Remove Me\n3. Send Money\n";
-            cout << "4. Cash-in\n5. Cash-out\n6. Pay Bill\n";
-            cout << "7. Check Balance\n8. History\n9. Logout\n";
+            cout << "1. Update Me\n2. Remove Me\n3. Send Money\n4. Cash-in\n5. Cash-out\n6. Pay Bill\n7. Check Balance\n8. History\n9. Logout\n";
             cout << "   Enter Your Option (1-9): ";
 
             if (!(cin >> option))
