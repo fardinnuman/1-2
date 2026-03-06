@@ -1,4 +1,4 @@
-public class j2 {
+public class Java2 {
 
     public static void main(String[] args) {
         int age = 20;
@@ -14,5 +14,4 @@ public class j2 {
         System.out.println(x);
 
     }
-
 }
