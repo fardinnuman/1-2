@@ -4,10 +4,12 @@ public class Student {
     double cgpa;
     boolean isEnrolled;
 
+    // CONSTRUCTOR
     Student(String name, int age, double cgpa) {
         this.name = name;
         this.age = age;
         this.cgpa = cgpa;
+        this.isEnrolled = true; // NOT NECESSARILY NEEDS TO BE PASSED AS PARAMETERS, CAN BE SEPERATELY ASSIGNED TOO
     }
     // this -> REFERS TO THE OBJECT WE ARE CURRENTLY WORKING WITH
 
@@ -15,6 +17,10 @@ public class Student {
     // SO IT BECOMES, student1.name = name; student1.age = age; student1.cgpa = cgpa;
     // WHEN WE CREATE student2, this = student2
     // SO IT BECOMES, student2.name = name; student2.age = age; student2.cgpa = cgpa;
+
+    void study() {
+        System.out.println(this.name + " is studying");
+    }
 
 }
 
