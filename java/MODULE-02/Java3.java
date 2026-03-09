@@ -1,17 +1,27 @@
-class Student {
+class Car {
     String name;
-    int age;
+    int year;
 
-    void displayInfo() {
-        System.out.println("Name: " + name + ", Age: " + age);
+    Car() {
+        System.out.println("Hi I am default constructor");
     }
+
+    Car(String name, int year) {
+        this.name = name;
+        this.year = year;
+        System.out.println("Hi I am parammeterized constructor");
+    }
+
 }
 
 public class Java3 {
+
     public static void main(String[] args) {
-        Student s1 = new Student();  // create object
-        s1.name = "Numan";
-        s1.age = 19;
-        s1.displayInfo();            // call method
+
+        Car car1 = new Car();
+
+        Car car2 = new Car("Numan", 2005);
+
     }
+
 }
