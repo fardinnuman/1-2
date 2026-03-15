@@ -27,7 +27,7 @@
 * [x] Math 2 : 16/20
 * [x] Math 3 : 6/20
 * [ ] Math 4 :
-* **Average :**
+* **Average : 9**
 
 ### Physics
 
@@ -41,9 +41,9 @@
 
 * [x] EEE 1 : 15.5/20
 * [x] EEE 2 : 14.5/20
-* [x] EEE 3 :
+* [x] EEE 3 : 10/20
 * [ ] EEE 4 :
-* **Average :**
+* **Average : 14**
 
 </details>
 
