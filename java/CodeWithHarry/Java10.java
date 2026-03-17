@@ -9,5 +9,4 @@ public class Java10 {
         System.out.println(sum(2, 3));
 
     }
-
 }
