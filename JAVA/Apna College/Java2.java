@@ -2,7 +2,7 @@
 
 public class Java2 {
 
-    static class Student {
+    class Student {
 
         String name;
         int age;
@@ -34,9 +34,11 @@ public class Java2 {
 
     public static void main(String[] args) {
 
-        Student student1 = new Student(); // CALLING NON-PARAMETERIZED CONSTRUCTOR
-        Student student2 = new Student("Numan", 20); // CALLING PARAMETERIZED CONSTRUCTOR
-        Student student3 = new Student(student2); // CALLING COPY CONSTRUCTOR
+        Java2 ob = new Java2();
+
+        Student student1 = ob.new Student(); // CALLING NON-PARAMETERIZED CONSTRUCTOR
+        Student student2 = ob.new Student("Numan", 20); // CALLING PARAMETERIZED CONSTRUCTOR
+        Student student3 = ob.new Student(student2); // CALLING COPY CONSTRUCTOR
 
     }
 
