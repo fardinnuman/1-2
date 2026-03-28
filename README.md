@@ -17,7 +17,7 @@
 
 * [x] CSE OOP 1 : 19/20
 * [x] CSE OOP 2 :
-* [x] CSE OOP 3 :
+* [x] CSE OOP 3 : 16/20
 * [ ] CSE OOP 4 :
 * **Average :**
 
