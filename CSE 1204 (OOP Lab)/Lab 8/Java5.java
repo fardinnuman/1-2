@@ -36,8 +36,9 @@ public class Java5 {
 
         C obj = new C();
 
-        obj.PrintA(); 
-        obj.PrintB(); 
-        obj.PrintC(); 
+        obj.PrintA();
+        obj.PrintB();
+        obj.PrintC();
     }
 }
+

@@ -4,7 +4,6 @@ import java.util.Collections;
 public class Java1 {
     public static void main(String[] args) {
 
-        // Create ArrayList object
         ArrayList<Integer> list = new ArrayList<>();
 
         // i) add()
@@ -17,11 +16,11 @@ public class Java1 {
         System.out.println("Element at index 1 (get): " + list.get(1));
 
         // iii) set()
-        list.set(1, 50); // replace index 1
+        list.set(1, 50);
         System.out.println("After set(): " + list);
 
         // iv) remove()
-        list.remove(0); // remove index 0
+        list.remove(0);
         System.out.println("After remove(): " + list);
 
         // v) size()
@@ -39,3 +38,5 @@ public class Java1 {
         System.out.println("After clear(): " + list);
     }
 }
+
+

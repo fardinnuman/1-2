@@ -25,3 +25,4 @@ public class Java2 {
         System.out.println("Midpoint: (" + mid.x + ", " + mid.y + ")");
     }
 }
+
