@@ -26,7 +26,6 @@ int main()
             string name;
             cin >> name;
             marks[name] = 0;
-            
         }
         else if (type == 3)
         {
