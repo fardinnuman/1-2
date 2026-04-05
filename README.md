@@ -16,9 +16,9 @@
 ### CSE (Object Oriented Programming)
 
 * [x] CSE OOP 1 : 19/20
-* [x] CSE OOP 2 :
+* [x] CSE OOP 2 : 06/20
 * [x] CSE OOP 3 : 16/20
-* [ ] CSE OOP 4 :
+* [x] CSE OOP 4 :
 * **Average :**
 
 ### Math
@@ -33,7 +33,7 @@
 
 * [x] Phy 1 : 19/20
 * [x] Phy 2 :
-* [ ] Phy 3 :
+* [x] Phy 3 :
 * [ ] Phy 4 :
 * **Average :**
 
