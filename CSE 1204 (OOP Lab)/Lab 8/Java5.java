@@ -41,4 +41,3 @@ public class Java5 {
         obj.PrintC();
     }
 }
-
