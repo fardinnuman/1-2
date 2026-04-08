@@ -18,16 +18,16 @@
 * [x] CSE OOP 1 : 19/20
 * [x] CSE OOP 2 : 06/20
 * [x] CSE OOP 3 : 16/20
-* [x] CSE OOP 4 :
-* **Average :**
+* [x] CSE OOP 4 : 10/20**
+* **Average : 15**
 
 ### Math
 
 * [x] Math 1 : 5/20
 * [x] Math 2 : 16/20
 * [x] Math 3 : 6/20
-* [ ] Math 4 :
-* **Average : 9**
+* [x] Math 4 : 20/20*
+* **Average : 14**
 
 ### Physics
 
