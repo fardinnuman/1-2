@@ -8,90 +8,92 @@ public:
 
     void missionReport()
     {
-        cout << "Mission Report of Unit Class";
+        cout << "Mission Report of Unit Class" << endl;
     }
 
     Unit()
     {
-        cout << "Default Constructor";
+        cout << "Default Constructor of Unit" << endl;
     }
 
     Unit(int x)
     {
         this->x = x;
-
-        cout << "Parameterized Constructor";
+        cout << "Parameterized Constructor of Unit" << endl;
     }
 
-    Unit(const int &obj)
+    Unit(const Unit &obj)
     {
-        cout << "Copy Constructor";
+        this->x = obj.x;
+        cout << "Copy Constructor of Unit" << endl;
     }
 
     ~Unit()
     {
-
-        cout << "Unit Destroyed";
+        cout << "Unit Destroyed" << endl;
     }
 };
 
 class AirforceUnit : public Unit
 {
 public:
+    void missionReport()
+    {
+        cout << "Mission Report of AirforceUnit Class" << endl;
+    }
+
     AirforceUnit()
     {
-        cout << "Default Constructor of AirforceUnit";
+        cout << "Default Constructor of AirforceUnit" << endl;
     }
 
     AirforceUnit(int x)
     {
         this->x = x;
-
-        cout << "Parameterized Constructor of AirforceUnit";
+        cout << "Parameterized Constructor of AirforceUnit" << endl;
     }
 
-    AirforceUnit(const int &obj)
+    AirforceUnit(const AirforceUnit &obj)
     {
-        cout << "Copy Constructor of AirforceUnit";
-    }
-
-    void missionReport()
-    {
-
-        cout << "Mission Report of AirforceUnit Class";
+        this->x = obj.x;
+        cout << "Copy Constructor of AirforceUnit" << endl;
     }
 
     ~AirforceUnit()
     {
 
-        cout << "AirforceUnit Unit Destroyed";
+        cout << "AirforceUnit Unit Destroyed" << endl;
     }
 };
 
 class NavalUnit : public Unit
 {
 public:
+    void missionReport()
+    {
+        cout << "Mission Report of NavalUnit Class" << endl;
+    }
+
     NavalUnit()
     {
-        cout << "Default Constructor of NavalUnit";
+        cout << "Default Constructor of NavalUnit" << endl;
     }
 
     NavalUnit(int x)
     {
         this->x = x;
-
-        cout << "Parameterized Constructor of NavalUnit";
+        cout << "Parameterized Constructor of NavalUnit" << endl;
     }
 
-    void missionReport()
+    NavalUnit(const NavalUnit &obj)
     {
-        cout << "Mission Report of NavalUnit Class";
+        this->x = obj.x;
+        cout << "Copy Constructor of NavalUnit" << endl;
     }
 
     ~NavalUnit()
     {
-
-        cout << "NavalUnit Unit Destroyed";
+        cout << "NavalUnit Unit Destroyed" << endl;
     }
 };
 
@@ -99,27 +101,29 @@ class StrikeCommand : public AirforceUnit, public NavalUnit
 {
 
 public:
+    void missionReport()
+    {
+        cout << "Mission Report of StrikeCommand Class" << endl;
+    }
+
     StrikeCommand()
     {
-        cout << "Default Constructor of StrikeCommand";
+        cout << "Default Constructor of StrikeCommand" << endl;
     }
 
     StrikeCommand(int x)
     {
-        this->x = x;
-
-        cout << "Parameterized Constructor of StrikeCommand";
+        cout << "Parameterized Constructor of StrikeCommand" << endl;
     }
 
-    void missionReport()
+    StrikeCommand(const StrikeCommand &obj)
     {
-        cout << "Mission Report of StrikeCommand Class";
+        cout << "Copy Constructor of StrikeCommand" << endl;
     }
 
     ~StrikeCommand()
     {
-
-        cout << "NavalUnit Unit Destroyed";
+        cout << "StrikeCommand Unit Destroyed" << endl;
     }
 };
 
@@ -130,6 +134,7 @@ int main()
     StrikeCommand ob3;
     StrikeCommand ob4;
     StrikeCommand ob5;
+
     ob1.missionReport();
 
     return 0;
