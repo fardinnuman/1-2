@@ -1,0 +1,4 @@
+792|Banalata Express|Chapainawabganj|06:00|Dhaka|11:30|302 km|Friday|3|Rajshahi|Mirzapur|Remaining 80 km in 01:20 hours|5
+754|Silkcity Express|Rajshahi|07:40|Dhaka|13:20|255 km|Sunday|7|Solop|Jamtail|Remaining 126 km in 02:50 hours|12
+702|Subarna Express|Chittagong|07:00|Dhaka|12:20|320 km|Monday|2|Feni|Comilla|Remaining 45 km in 00:55 hours|4
+705|Ekota Express|Dhaka|10:15|Dinajpur|21:10|430 km|Tuesday|4|Tangail|Sirajganj|Remaining 310 km in 06:15 hours|15
