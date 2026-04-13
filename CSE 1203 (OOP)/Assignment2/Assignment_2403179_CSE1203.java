@@ -8,10 +8,27 @@ import java.time.format.TextStyle;
 import java.util.*;
 import java.util.List;
 
+// INTERFACE
 interface ITrainTracker {
     void updateUIContent();
 }
 
+// ABSTRACT CLASS
+abstract class RailwayEntity {
+    protected String name;
+
+    public RailwayEntity(String name) {
+        this.name = name;
+    }
+
+    public abstract String getEntityType();
+
+    public String getName() {
+        return name;
+    }
+}
+
+// STATION CLASS
 class Station {
     String name;
 
@@ -20,37 +37,45 @@ class Station {
     }
 }
 
-class Train {
-    String number, name, startStation, destStation, depTime, arrTime, offDay, totalDist;
+// TRAIN CLASS
+class Train extends RailwayEntity {
+    String number, name, startStation, departureTime, destinationStation, arrivalTime, offDay, totalDistance;
     List<Station> stops;
     int passedStops;
-    String nextStat, nextStop, remainingInfo;
+    String nextStation, nextStop, remainingInfo;
 
     Train(String number, String name, String start, String dep, String dest, String arr,
-            String dist, String off, int passed, String nextStat, String nextStop, String rem, List<Station> stops) {
+            String dist, String off, int passed, String nextStation, String nextStop, String rem, List<Station> stops) {
+        super(name);
         this.number = number;
         this.name = name;
         this.startStation = start;
-        this.depTime = dep;
-        this.destStation = dest;
-        this.arrTime = arr;
-        this.totalDist = dist;
+        this.departureTime = dep;
+        this.destinationStation = dest;
+        this.arrivalTime = arr;
+        this.totalDistance = dist;
         this.offDay = off;
         this.passedStops = passed;
-        this.nextStat = nextStat;
+        this.nextStation = nextStation;
         this.nextStop = nextStop;
         this.remainingInfo = rem;
         this.stops = stops;
     }
 
+    @Override
+    public String getEntityType() {
+        return "Train";
+    }
+
     public String toFileString() {
-        return String.join("|", number, name, startStation, depTime, destStation, arrTime,
-                totalDist, offDay, String.valueOf(passedStops), nextStat, nextStop, remainingInfo,
-                String.valueOf(stops.size()));
+        return String.format(
+                "%-3s | %-17s | %-16s | %-5s | %-8s | %-5s | %-6s | %-8s | %-1s | %-8s | %-15s | %-31s | %-2s",
+                number, name, startStation, departureTime, destinationStation, arrivalTime,
+                totalDistance, offDay, passedStops, nextStation, nextStop, remainingInfo, stops.size());
     }
 }
 
-public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
+public class Assignment_2403179_CSE1203 extends JFrame implements ITrainTracker {
 
     private final Color MAROON_HEADER = new Color(114, 43, 43);
     private final Color SAGE_BG = new Color(196, 213, 184);
@@ -64,9 +89,9 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
     private TrackPainter trackPainter;
     private Map<String, Train> trainMap;
     private int pX, pY;
-    private final String DATA_FILE = "train_data.txt";
+    private final String DATA_FILE = "train-data.txt";
 
-    public MEOWMEOWMEOW() {
+    public Assignment_2403179_CSE1203() {
         setUndecorated(true);
         setSize(750, 480);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -78,7 +103,6 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
         mainWrapper.setBackground(SAGE_BG);
         mainWrapper.setBorder(new LineBorder(Color.BLACK, 1));
 
-        // --- Restored Header Design ---
         JPanel header = new JPanel(new BorderLayout());
         header.setBackground(MAROON_HEADER);
         header.setPreferredSize(new Dimension(0, 40));
@@ -101,6 +125,17 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
 
         JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 15, 5));
         btnPanel.setOpaque(false);
+
+        JLabel minBtn = new JLabel("-", SwingConstants.CENTER);
+        minBtn.setForeground(Color.WHITE);
+        minBtn.setFont(new Font("Monospaced", Font.BOLD, 22));
+        minBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        minBtn.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                setState(Frame.ICONIFIED);
+            }
+        });
+
         JLabel clsBtn = new JLabel("x", SwingConstants.CENTER);
         clsBtn.setForeground(Color.WHITE);
         clsBtn.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -110,10 +145,11 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
                 System.exit(0);
             }
         });
+
         btnPanel.add(clsBtn);
+        btnPanel.add(minBtn);
         header.add(btnPanel, BorderLayout.EAST);
 
-        // --- Restored Sidebar Components ---
         JPanel content = new JPanel(null);
         content.setOpaque(false);
 
@@ -122,8 +158,9 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
         selectLabel.setFont(new Font("SansSerif", Font.PLAIN, 16));
         content.add(selectLabel);
 
-        trainCombo = new JComboBox<>(new String[] { "754-Silkcity Express", "702-Subarna Express", "705-Ekota Express",
-                "792-Banalata Express" });
+        trainCombo = new JComboBox<>(
+                new String[] { "756-Madhumati Express", "792-Banalata Express", "754-Silkcity Express",
+                        "760-Padma Express" });
         trainCombo.setBounds(25, 50, 210, 35);
         trainCombo.setFont(new Font("SansSerif", Font.BOLD, 14));
         trainCombo.addActionListener(e -> updateUIContent());
@@ -131,20 +168,21 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
 
         logoLabel1 = new JLabel();
         logoLabel1.setBounds(40, 180, 80, 80);
-        setScaledImage(logoLabel1, "govt_logo.png", 80);
+        setScaledImage(logoLabel1, "govtLogo.png", 80);
         content.add(logoLabel1);
 
         logoLabel2 = new JLabel();
         logoLabel2.setBounds(140, 180, 80, 80);
-        setScaledImage(logoLabel2, "railway_logo.png", 80);
+        setScaledImage(logoLabel2, "railwayLogo.png", 80);
         content.add(logoLabel2);
 
-        JLabel copy = new JLabel("Copyright@2026, CSE RUET");
-        copy.setBounds(25, 380, 200, 20);
+        JLabel copy = new JLabel(
+                "<html><b>SUBMITTED BY:<br>FARDIN BIN ASLAM NUMAN<br>2403179 | CSE-C | 24 SERIES</b><br><br>Copyright @ 2026, CSE RUET</html>");
+
+        copy.setBounds(25, 330, 200, 80);
         copy.setFont(new Font("SansSerif", Font.PLAIN, 12));
         content.add(copy);
 
-        // --- Restored Information Panel Structure ---
         JPanel infoPanel = new JPanel(new BorderLayout());
         infoPanel.setBounds(260, 15, 460, 400);
         infoPanel.setBackground(DARK_PANEL);
@@ -191,18 +229,21 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
 
         if (file.exists()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                reader.readLine();
+                reader.readLine();
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    String[] d = line.split("\\|");
+                    String[] d = line.split("\\s*\\|\\s*");
                     if (d.length < 13)
                         continue;
                     List<Station> stops = new ArrayList<>();
-                    int stopCount = Integer.parseInt(d[12]);
+                    int stopCount = Integer.parseInt(d[12].trim());
                     for (int i = 0; i < stopCount; i++)
                         stops.add(new Station("S"));
-                    Train t = new Train(d[0], d[1], d[2], d[3], d[4], d[5], d[6], d[7], Integer.parseInt(d[8]), d[9],
-                            d[10], d[11], stops);
-                    trainMap.put(d[0] + "-" + d[1], t);
+                    Train t = new Train(d[0].trim(), d[1].trim(), d[2].trim(), d[3].trim(), d[4].trim(), d[5].trim(),
+                            d[6].trim(), d[7].trim(), Integer.parseInt(d[8].trim()), d[9].trim(), d[10].trim(),
+                            d[11].trim(), stops);
+                    trainMap.put(d[0].trim() + "-" + d[1].trim(), t);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -214,33 +255,61 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
     }
 
     private void createDefaultData() {
+        trainMap = new HashMap<>();
+
+        // TRAIN INFORMATIONS FROM https://eticket.railway.gov.bd/ WEBSITE (RAJSHAHI TO DHAKA)
+        // MADHUMATI EXPRESS
         List<Station> s1 = new ArrayList<>();
-        for (int i = 0; i < 12; i++)
-            s1.add(new Station("S"));
-        trainMap.put("754-Silkcity Express", new Train("754", "Silkcity Express", "Rajshahi", "07:40", "Dhaka", "13:20",
-                "255 km", "Sunday", 7, "Solop", "Jamtail", "Remaining 126 km in 02:50 hours", s1));
+        String[] madhumatiStations = { "Rajshahi", "Ishwardi", "Paksey", "Bheramara", "Mirpur",
+                "Poradaha", "Kushtia Court", "Kumarkhali", "Khoksha", "Pangsha",
+                "Kalukhali", "Rajbari", "Pachuria", "Amirabad", "Faridpur",
+                "Talma", "Pukuria", "Bhanga", "Shibchar", "Padma",
+                "Mawa", "Sreenagar", "Dhaka" };
+        for (String station : madhumatiStations)
+            s1.add(new Station(station));
+        trainMap.put("756-Madhumati Express",
+                new Train("756", "Madhumati Express", "Rajshahi", "06:40", "Dhaka", "14:00", "220 km", "Saturday", 5,
+                        "Poradaha", "Kushtia Court", "Remaining 170 km in 05:10 hours", s1));
 
+        // BANALATA EXPRESS
         List<Station> s2 = new ArrayList<>();
-        for (int i = 0; i < 4; i++)
-            s2.add(new Station("S"));
-        trainMap.put("702-Subarna Express", new Train("702", "Subarna Express", "Chittagong", "07:00", "Dhaka", "12:20",
-                "320 km", "Monday", 2, "Feni", "Comilla", "Remaining 45 km in 00:55 hours", s2));
-
-        List<Station> s3 = new ArrayList<>();
-        for (int i = 0; i < 15; i++)
-            s3.add(new Station("S"));
-        trainMap.put("705-Ekota Express", new Train("705", "Ekota Express", "Dhaka", "10:15", "Dinajpur", "21:10",
-                "430 km", "Tuesday", 4, "Tangail", "Sirajganj", "Remaining 310 km in 06:15 hours", s3));
-
-        List<Station> s4 = new ArrayList<>();
-        for (int i = 0; i < 5; i++)
-            s4.add(new Station("S"));
+        String[] banalataStations = { "Chapainawabganj", "Rajshahi", "Dhaka" };
+        for (String station : banalataStations)
+            s2.add(new Station(station));
         trainMap.put("792-Banalata Express", new Train("792", "Banalata Express", "Chapainawabganj", "06:00", "Dhaka",
-                "11:30", "302 km", "Friday", 3, "Rajshahi", "Mirzapur", "Remaining 80 km in 01:20 hours", s4));
+                "11:35", "320 km", "Friday", 1, "Rajshahi", "Dhaka", "Remaining 280 km in 04:45 hours", s2));
+
+        // SILKCITY EXPRESS
+        List<Station> s3 = new ArrayList<>();
+        String[] silkcityStations = { "Rajshahi", "Abdulpur", "Ishwardi", "Chatmohar", "Boral Bridge", "Ullapara",
+                "Jamtail", "SHM Monsur Ali", "Ibrahimabad",
+                "Tangail", "Mirzapur", "Joydebpur", "Dhaka" };
+        for (String station : silkcityStations)
+            s3.add(new Station(station));
+        trainMap.put("754-Silkcity Express", new Train("754", "Silkcity Express", "Rajshahi", "07:40", "Dhaka", "13:20",
+                "220 km", "Sunday", 7, "Ullapara", "Jamtail", "Remaining 126 km in 02:50 hours", s3));
+
+        // PADMA EXPRESS
+        List<Station> s4 = new ArrayList<>();
+        String[] padmaStations = { "Rajshahi", "Sardah Road", "Abdulpur", "Ishwardi Bypass", "Chatmohar",
+                "Boral Bridge", "Ullapara", "SHM Monsur Ali", "Ibrahimabad", "Tangail",
+                "Joydebpur", "Dhaka" };
+        for (String station : padmaStations)
+            s4.add(new Station(station));
+        trainMap.put("760-Padma Express", new Train("760", "Padma Express", "Rajshahi", "16:00", "Dhaka", "21:15",
+                "220 km", "Tuesday", 5, "Ullapara", "SHM Monsur Ali", "Remaining 145 km in 03:20 hours", s4));
+
+        saveToTxtFile();
     }
 
+    // TO SAVE TRAIN-DATA TO train-data.txt FILE
     private void saveToTxtFile() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(DATA_FILE))) {
+
+            writer.println(
+                    "ID  | Name              | Start Station    | Dep   | Dest     | Arr   | Dist   | Off Day  | # | Next St. | Next Sp.        | Progress Info                   | Stops");
+            writer.println(
+                    "---------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             for (Train t : trainMap.values()) {
                 writer.println(t.toFileString());
             }
@@ -253,8 +322,11 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
     public void updateUIContent() {
         dataGrid.removeAll();
         Train t = trainMap.get((String) trainCombo.getSelectedItem());
+
+        // TO EXTRACT DAY FROM THE SYSTEM
         String currentDay = LocalDate.now().getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
 
+        // TO DISPLAY MESSAGE FOR TRAIN OFF DAY
         if (currentDay.equalsIgnoreCase(t.offDay)) {
             JLabel msg = new JLabel("TRAIN OFF DAY: " + t.offDay.toUpperCase());
             msg.setForeground(Color.RED);
@@ -263,8 +335,8 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
             remainingLabel.setText("Not Operating Today");
             trackPainter.setStats(0, t.stops.size());
         } else {
-            String[] vals = { t.number, t.name, t.startStation, t.depTime, t.destStation, t.arrTime,
-                    String.valueOf(t.stops.size()), t.nextStat, t.nextStop, t.totalDist };
+            String[] vals = { t.number, t.name, t.startStation, t.departureTime, t.destinationStation, t.arrivalTime,
+                    String.valueOf(t.stops.size()), t.nextStation, t.nextStop, t.totalDistance };
             String[] keys = { "1. Train Number:", "2. Train Name:", "3. Start Station:", "4. Time of Departure:",
                     "5. Destination Station:", "6. Time of Arrival:", "7. Number of Stops:", "8. Next Station:",
                     "9. Next Stop:", "10. Total Distance:" };
@@ -275,7 +347,7 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
 
             for (int i = 0; i < keys.length; i++) {
                 JLabel k = new JLabel(keys[i]);
-                k.setForeground(Color.WHITE); // Labels restored to WHITE
+                k.setForeground(Color.WHITE);
                 k.setFont(new Font("SansSerif", Font.PLAIN, 15));
                 k.setPreferredSize(new Dimension(170, 22));
                 gbc.gridx = 0;
@@ -328,6 +400,6 @@ public class MEOWMEOWMEOW extends JFrame implements ITrainTracker {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new MEOWMEOWMEOW().setVisible(true));
+        SwingUtilities.invokeLater(() -> new Assignment_2403179_CSE1203().setVisible(true));
     }
 }
