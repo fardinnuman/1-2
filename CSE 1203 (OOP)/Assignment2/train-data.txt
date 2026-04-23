@@ -1,6 +1,0 @@
-ID  | Name              | Start Station    | Dep   | Dest     | Arr   | Dist   | Off Day  | # | Next St. | Next Sp.        | Progress Info                   | Stops
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-792 | Banalata Express  | Chapainawabganj  | 06:00 | Dhaka    | 11:35 | 320 km | Friday   | 1 | Rajshahi | Dhaka           | Remaining 280 km in 04:45 hours | 3 
-754 | Silkcity Express  | Rajshahi         | 07:40 | Dhaka    | 13:20 | 220 km | Sunday   | 7 | Ullapara | Jamtail         | Remaining 126 km in 02:50 hours | 13
-760 | Padma Express     | Rajshahi         | 16:00 | Dhaka    | 21:15 | 220 km | Tuesday  | 5 | Ullapara | SHM Monsur Ali  | Remaining 145 km in 03:20 hours | 12
-756 | Madhumati Express | Rajshahi         | 06:40 | Dhaka    | 14:00 | 220 km | Saturday | 5 | Poradaha | Kushtia Court   | Remaining 170 km in 05:10 hours | 23
