@@ -10,7 +10,7 @@
 * [x] CSE DS 1 : 20/20
 * [x] CSE DS 2 : 17/20
 * [x] CSE DS 3 : 06/20
-* [ ] CSE DS 4 :
+* [x] CSE DS 4 :
 * **Average : 15/20**
 
 ### CSE (Object Oriented Programming)
@@ -18,7 +18,7 @@
 * [x] CSE OOP 1 : 19/20
 * [x] CSE OOP 2 : 06/20
 * [x] CSE OOP 3 : 16/20
-* [x] CSE OOP 4 : 18/20**
+* [x] CSE OOP 4 : 18/20
 * **Average : 18**
 
 ### Math
@@ -26,15 +26,15 @@
 * [x] Math 1 : 5/20
 * [x] Math 2 : 16/20
 * [x] Math 3 : 6/20
-* [x] Math 4 : 20/20*
+* [x] Math 4 : 19/20
 * **Average : 14**
 
 ### Physics
 
 * [x] Phy 1 : 19/20
 * [x] Phy 2 : 09/20
-* [x] Phy 3 :
-* [ ] Phy 4 :
+* [x] Phy 3 : 17*
+* [x] Phy 4 : 11*
 * **Average :**
 
 ### EEE
@@ -42,7 +42,7 @@
 * [x] EEE 1 : 15.5/20
 * [x] EEE 2 : 14.5/20
 * [x] EEE 3 : 10/20
-* [ ] EEE 4 :
+* [x] EEE 4 : 10*
 * **Average : 14**
 
 </details>
