@@ -1,4 +1,4 @@
-# 1-2 | 08 Nov-14 Jun | 219 Days
+# 1-2 | 08 NOV-14 JUN | 219 DAYS
 
 <details>
 <summary><b>CT TRACKER</b></summary>
@@ -10,8 +10,8 @@
 * [x] CSE DS 1 : 20/20
 * [x] CSE DS 2 : 17/20
 * [x] CSE DS 3 : 06/20
-* [x] CSE DS 4 :
-* **Average : 15/20**
+* [x] CSE DS 4 : 17/20
+* **Average : 18/20**
 
 ### CSE (Object Oriented Programming)
 
@@ -35,7 +35,7 @@
 * [x] Phy 2 : 09/20
 * [x] Phy 3 : 17*
 * [x] Phy 4 : 11*
-* **Average :**
+* **Average : 16**
 
 ### EEE
 
@@ -44,38 +44,6 @@
 * [x] EEE 3 : 10/20
 * [x] EEE 4 : 10*
 * **Average : 14**
-
-</details>
-
-<details>
-<summary><b>SHOUTOUT</b></summary>
-
-## TO ALL THE YT CHANNELS I LEARNED FROM IN 1-2
-
-* <span style="background-color: skyblue">**Math 1213**</span>
-
-  * Pradeep Giri Academy
-  * Gajendra Purohit
-
-* <span style="background-color: skyblue">**CSE 1201 (DS)**</span>
-
-  * Coding with Clicks
-  * Code with Harry
-  * Apna College
-
-* <span style="background-color: skyblue">**CSE 1203 (OOP)**</span>
-
-  * Code with Harry
-  * Apna College
-
-* <span style="background-color: skyblue">**EEE 1251**</span>
-
-  * Neso Academy
-  * LEEEB
-
-* <span style="background-color: skyblue">**Physics 1213**</span>
-
-  * N/A
 
 </details>
 
