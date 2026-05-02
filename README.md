@@ -11,7 +11,7 @@
 * [x] CSE DS 2 : 17/20
 * [x] CSE DS 3 : 06/20
 * [x] CSE DS 4 : 17/20
-* **Average : 18/20**
+* **Average : 18**
 
 ### CSE (Object Oriented Programming)
 
