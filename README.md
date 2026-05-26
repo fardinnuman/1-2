@@ -42,8 +42,8 @@
 * [x] EEE 1 : 15.5/20
 * [x] EEE 2 : 14.5/20
 * [x] EEE 3 : 10/20
-* [x] EEE 4 : 10*
-* **Average : 14**
+* [x] EEE 4 : 13/20
+* **Average : 15**
 
 </details>
 
